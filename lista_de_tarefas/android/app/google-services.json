@@ -7,12 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:387228420362:android:75e256e7513bfce86a12f3",
+        "mobilesdk_app_id": "1:387228420362:android:72d6a26d08e8b4356a12f3",
         "android_client_info": {
-          "package_name": "com.taskify.android"
+          "package_name": "com.example.lista_de_tarefas"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "387228420362-bg4a8khnkpk5l02bmu10vigv7svhro7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCbkMBxYQ45iVdFhNJlEPbBv2PgDkUXr0c"
@@ -20,7 +25,41 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "387228420362-bg4a8khnkpk5l02bmu10vigv7svhro7n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387228420362:android:75e256e7513bfce86a12f3",
+        "android_client_info": {
+          "package_name": "com.taskify.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "387228420362-bg4a8khnkpk5l02bmu10vigv7svhro7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbkMBxYQ45iVdFhNJlEPbBv2PgDkUXr0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "387228420362-bg4a8khnkpk5l02bmu10vigv7svhro7n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
