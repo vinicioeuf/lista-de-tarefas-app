@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_core: ^2.27.0
   lottie: ^2.7.0
+  google_fonts: 6.0.0
+  flutter_svg: ^2.0.10+1
+  flare_flutter: ^3.0.2
 
 dev_dependencies:
   flutter_test:
@@ -60,9 +63,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/imagens/lista-de-tarefas.png
-    - assets/imagens/lista-de-tarefas2.json
     - assets/imagens/animation.json
+    - assets/imagens/google.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
