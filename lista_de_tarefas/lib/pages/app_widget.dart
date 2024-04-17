@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:lista_de_tarefas/pages/home_page.dart';
 import 'package:lista_de_tarefas/pages/login_page.dart';
 import 'package:lista_de_tarefas/pages/splash_screen.dart';
 
@@ -31,6 +32,7 @@ class AppWidget extends StatelessWidget {
       routes: {
         '/splash': (_) => const SplashScreen(),
         '/login': (_) => const LoginPage(),
+        '/home': (_) => HomePage(),
   
       }
 

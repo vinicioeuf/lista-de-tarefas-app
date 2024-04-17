@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flare_flutter/flare_actor.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -10,7 +13,28 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final String googleImage = 'assets/imagens/google.svg';
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  _signInWithGoogle()async{
+    final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+    try {
+      final GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
+
+      if (googleSignInAccount != null) {
+        final GoogleSignInAuthentication googleSignInAuthentication = await googleSignInAccount.authentication;
+        final AuthCredential credential = GoogleAuthProvider.credential(
+            idToken: googleSignInAuthentication.idToken,
+            accessToken: googleSignInAuthentication.accessToken
+        );
+
+        await _firebaseAuth.signInWithCredential(credential); // Correção aqui
+        Navigator.pushNamed(context, '/home');
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 50,
               child: ElevatedButton.icon(
                 onPressed: () {
-                  // Função a ser executada ao pressionar o botão
+                  _signInWithGoogle();
                 },
 
                 icon: SvgPicture.asset('assets/imagens/google.svg', width: 24, height: 24,),
