@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
+import 'package:lottie/lottie.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -38,17 +38,16 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 24, 48, 59),
+      backgroundColor: Color.fromARGB(255, 25, 25, 25),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-                  Icons.check_circle,
-                  color: Colors.white,
-                  size: 100,
-                ),
-                SizedBox(height: 20,),
+            Lottie.asset(
+                "assets/imagens/login.json"
+              ),
+            
+            SizedBox(height: 20,),
             Text(
               "Bem vindo(a) ao Taskify",
               style: GoogleFonts.barlowCondensed(

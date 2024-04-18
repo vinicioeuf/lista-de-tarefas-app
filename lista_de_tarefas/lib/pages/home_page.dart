@@ -1,63 +1,113 @@
+// import 'package:app/pages/access_page.dart';
+// import 'package:app/pages/dog.dart';
+// import 'package:app/pages/profile_page.dart';
+// import 'package:awesome_notifications/awesome_notifications.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:lista_de_tarefas/pages/add_page.dart';
+import 'package:lista_de_tarefas/pages/list_page.dart';
 import 'package:lista_de_tarefas/pages/profile_page.dart';
+import 'package:showcaseview/showcaseview.dart';
+
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() {
+    return HomePageState();
+  }
 }
 
-class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
+class HomePageState extends State<HomePage> {
+  int selectedIndex = 0;
+  int paginaAtual = 0;
+  late PageController pc;
+  bool showTutorial = true; // Adiciona um estado para controlar a exibição do tutorial
+  int? credencial;
+  @override
+  void initState() {
+    super.initState();
+    // enviaNotificacao();
+    pc = PageController(initialPage: paginaAtual);
+  }
+  
+  
 
-  void _onItemTapped(int index) {
+  setPaginaAtual(pagina) {
     setState(() {
-      _selectedIndex = index;
+      paginaAtual = pagina;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 24, 48, 59),
+    return MaterialApp(
       
-      body: Center(
-        child: Text(''),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 8.0,
-        color: Colors.white,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            IconButton(iconSize: 35,
-              icon: Icon(Icons.home),
-              onPressed: (){
-                _onItemTapped(0);
-              },
-              color: _selectedIndex == 0 ? Color.fromARGB(255, 24, 48, 59) : Colors.grey,
+      home: Scaffold(
+        body: Stack( // Usa um Stack para sobrepor o tutorial sobre a página
+          children: [
+            
+            PageView(
+              controller: pc,
+              children: [
+                ShowCaseWidget(
+                  builder: Builder(
+                    builder: (context) => ListPage(),
+                  ),
+                ),
+                // AccessPage(),
+                ShowCaseWidget(
+                  builder: Builder(
+                    builder: (context) => AddPage(),
+                  ),
+                ),
+                // ProfilePage(),
+                ShowCaseWidget(
+                  builder: Builder(
+                    builder: (context) => ProfilePage(),
+                  ),
+                ),
+                // AboutPage(),
+                
+              ],
+              onPageChanged: setPaginaAtual,
             ),
-            IconButton(iconSize: 35,
-              icon: Icon(Icons.add_rounded),
-               onPressed: (){
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AddPage()));
-                _onItemTapped(1);
-              },
-              color: _selectedIndex == 1 ? Color.fromARGB(255, 24, 48, 59) : Colors.grey,
+            
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: paginaAtual,
+          backgroundColor: Color.fromARGB(255, 226, 221, 209),
+          selectedItemColor: Color.fromARGB(255, 25, 25, 25),
+          unselectedItemColor: Colors.grey,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(size: 35,
+                Icons.home,
+              ),
+              label: 'Inicio',
             ),
-            IconButton(iconSize: 35,
-              icon: Icon(Icons.person),
-               onPressed: (){
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => ProfilePage()));
-                _onItemTapped(2);
-              },
-              color: _selectedIndex == 2 ? Color.fromARGB(255, 24, 48, 59) : Colors.grey,
+            BottomNavigationBarItem(
+              icon: Icon(size: 35,
+                Icons.add,
+              ),
+              label: 'Adicionar',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(size: 35,
+                Icons.person,
+              ),
+              label: 'Perfil',
             ),
           ],
+          onTap: (pagina) {
+            setState(() {
+              showTutorial = false;
+            });
+            pc.animateToPage(pagina,
+                duration: Duration(milliseconds: 400), curve: Curves.ease);
+          },
         ),
       ),
     );
