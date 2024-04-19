@@ -134,8 +134,7 @@ class _AddPageState extends State<AddPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width *
-                      0.8, // 80% da largura da tela
+                  width: MediaQuery.of(context).size.width * 0.8, // 80% da largura da tela
                   height: 50, // Altura de 50
                   child: ElevatedButton(
                     style: ButtonStyle(
