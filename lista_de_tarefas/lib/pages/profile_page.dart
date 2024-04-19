@@ -113,49 +113,51 @@ class _ProfilePageState extends State<ProfilePage> {
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: Text(
+                    child: Center(child: Text(
                       _user?.email ?? 'Email do Usuário',
+                      style: TextStyle(color: Colors.white),
+                    ),)
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Implementar ação para editar perfil
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(0, 25, 25, 25),
+                      onPrimary: Colors.white,
+                      side: BorderSide(color: Colors.grey),
+                      padding: EdgeInsets.all(10),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 40),
+                    ),
+                    child: Text(
+                      'Editar Perfil',
+                      textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
                   SizedBox(height: 20),
-                  InkWell(
-                    onTap: () {
-                      // Implementar ação para editar perfil
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.symmetric(horizontal: 20),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Text(
-                        'Editar Perfil',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  InkWell(
-                    onTap: () {
+                  ElevatedButton(
+                    onPressed: () {
                       // Implementar ação para a opção "Sobre nós"
                     },
-                    child: Container(
-                      width: double.infinity,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(0, 25, 25, 25),
+                      onPrimary: Colors.white,
+                      side: BorderSide(color: Colors.grey),
                       padding: EdgeInsets.all(10),
-                      margin: EdgeInsets.symmetric(horizontal: 20),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Text(
-                        'Sobre Nós',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white),
-                      ),
+                      minimumSize: Size(0.9 * MediaQuery.of(context).size.width, 40),
+                    ),
+                    child: Text(
+                      'Sobre Nós',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ],
