@@ -51,20 +51,118 @@ class _ProfilePageState extends State<ProfilePage> {
       body: ListView(
         children: [
           Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (_user != null && _user!.photoURL != null)
-              CircleAvatar(
-                radius: 50,
-                backgroundImage: NetworkImage(_user!.photoURL!),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (_user != null && _user!.photoURL != null)
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage:
+                          NetworkImage(_user!.photoURL! ?? 'Sua Foto aqui'),
+                    ),
+                  SizedBox(height: 8),
+                  Text(_user?.displayName ?? 'Nome de Usuário',
+                      style: TextStyle(color: Colors.white, fontSize: 20)),
+                  SizedBox(height: 25),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Center(
+                          child: Text('Tarefas concluídas',
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                      ),
+                      SizedBox(width: 20), // Espaçamento entre os textos
+                      Expanded(
+                        child: Center(
+                          child: Text('Tarefas pendentes',
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10), // Espaçamento entre as linhas de texto
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Center(
+                          child:
+                              Text('1', style: TextStyle(color: Colors.white)),
+                        ),
+                      ),
+                      SizedBox(width: 20), // Espaçamento entre os números
+                      Expanded(
+                        child: Center(
+                          child:
+                              Text('6', style: TextStyle(color: Colors.white)),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 50),
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Text(
+                      _user?.email ?? 'Email do Usuário',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  InkWell(
+                    onTap: () {
+                      // Implementar ação para editar perfil
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(10),
+                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Text(
+                        'Editar Perfil',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  InkWell(
+                    onTap: () {
+                      // Implementar ação para a opção "Sobre nós"
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(10),
+                      margin: EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Text(
+                        'Sobre Nós',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            SizedBox(height: 8),
-            Text(_user!.displayName ?? 'Nome de Usuário', style: TextStyle(color: Colors.white, fontSize: 20)),
-            SizedBox(height: 20),
-          ],
-        ),
+            ],
+          ),
         ],
-        
       ),
     );
   }

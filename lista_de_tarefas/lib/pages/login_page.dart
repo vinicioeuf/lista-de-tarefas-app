@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:lista_de_tarefas/pages/home_page.dart';
 import 'package:lottie/lottie.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -28,7 +29,9 @@ class _LoginPageState extends State<LoginPage> {
         );
 
         await _firebaseAuth.signInWithCredential(credential); // Correção aqui
-        Navigator.pushNamed(context, '/home');
+        Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => HomePage()),
+                  );
       }
     } catch (e) {
       print(e.toString());
@@ -63,6 +66,7 @@ class _LoginPageState extends State<LoginPage> {
               child: ElevatedButton.icon(
                 onPressed: () {
                   _signInWithGoogle();
+                   
                 },
 
                 icon: SvgPicture.asset('assets/imagens/google.svg', width: 24, height: 24,),
