@@ -17,7 +17,12 @@ class _AddPageState extends State<AddPage> {
   final quinta = TextEditingController();
   final sexta = TextEditingController();
   bool showNextFields = false;
+
   TimeOfDay _selectedTime = TimeOfDay.now();
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -205,19 +210,14 @@ class _AddPageState extends State<AddPage> {
                                                   });
                                                 }
                                               },
-                                              child: Builder(
-                                                builder:
-                                                    (BuildContext context) {
-                                                  return Text(
-                                                    _selectedTime
-                                                        .format(context),
-                                                    style: TextStyle(
-                                                      color: Color.fromARGB(
-                                                          255, 200, 75, 49),
-                                                      fontSize: 16.0,
-                                                    ),
-                                                  );
-                                                },
+                                              child: Text(
+                                                _selectedTime.format(
+                                                    context), // Movido para fora do Builder
+                                                style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 200, 75, 49),
+                                                  fontSize: 16.0,
+                                                ),
                                               ),
                                             ),
                                           ],
