@@ -158,54 +158,71 @@ class _AddPageState extends State<AddPage> {
                                     ),
                               ),
                               child: AlertDialog(
-  title: Text("Segunda Feira"),
-  content: Column(
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      TextFormField(
-        decoration: InputDecoration(
-          labelText: 'Descrição do dia',
-          labelStyle: TextStyle(color: Colors.white),
-          border: OutlineInputBorder(),
-        ),
-        controller: segunda,
-        // Adicione a lógica de validação aqui, se necessário
-      ),
-      SizedBox(height: 10),
-      Row(
-        children: [
-          Text("Escolha o horário: "),
-          TextButton(
-            onPressed: () async {
-              final TimeOfDay? picked = await showTimePicker(
-                context: context,
-                initialTime: _selectedTime,
-              );
-              if (picked != null && picked != _selectedTime) {
-                setState(() {
-                  _selectedTime = picked;
-                });
-              }
-            },
-            child: Builder(
-              builder: (BuildContext context) {
-                return Text(
-                  _selectedTime.format(context),
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 200, 75, 49),
-                    fontSize: 16.0,
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    ]
-  )
-)
-
-                              );
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: Text(
+                                        "Salvar",
+                                        style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 200, 75, 49),
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                  title: Text("Segunda Feira"),
+                                  content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextFormField(
+                                          decoration: InputDecoration(
+                                            labelText: 'Descrição do dia',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            border: OutlineInputBorder(),
+                                          ),
+                                          controller: segunda,
+                                          // Adicione a lógica de validação aqui, se necessário
+                                        ),
+                                        SizedBox(height: 10),
+                                        Row(
+                                          children: [
+                                            Text("Escolha o horário: "),
+                                            TextButton(
+                                              onPressed: () async {
+                                                final TimeOfDay? picked =
+                                                    await showTimePicker(
+                                                  context: context,
+                                                  initialTime: _selectedTime,
+                                                );
+                                                if (picked != null &&
+                                                    picked != _selectedTime) {
+                                                  setState(() {
+                                                    _selectedTime = picked;
+                                                  });
+                                                }
+                                              },
+                                              child: Builder(
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return Text(
+                                                    _selectedTime
+                                                        .format(context),
+                                                    style: TextStyle(
+                                                      color: Color.fromARGB(
+                                                          255, 200, 75, 49),
+                                                      fontSize: 16.0,
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ])));
                         },
                       );
                     },
