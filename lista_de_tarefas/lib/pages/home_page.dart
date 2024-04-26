@@ -43,12 +43,11 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
       home: Scaffold(
-        body: Stack( // Usa um Stack para sobrepor o tutorial sobre a página
+        body: Stack(
           children: [
-            
             PageView(
+              physics: NeverScrollableScrollPhysics(), // Desativa a rolagem horizontal
               controller: pc,
               children: [
                 ShowCaseWidget(
@@ -56,24 +55,19 @@ class HomePageState extends State<HomePage> {
                     builder: (context) => ListPage(),
                   ),
                 ),
-                // AccessPage(),
                 ShowCaseWidget(
                   builder: Builder(
                     builder: (context) => AddPage(),
                   ),
                 ),
-                // ProfilePage(),
                 ShowCaseWidget(
                   builder: Builder(
                     builder: (context) => ProfilePage(),
                   ),
                 ),
-                // AboutPage(),
-                
               ],
               onPageChanged: setPaginaAtual,
             ),
-            
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -83,19 +77,19 @@ class HomePageState extends State<HomePage> {
           unselectedItemColor: Colors.grey,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(size: 35,
+              icon: Icon(
                 Icons.home,
               ),
               label: 'Inicio',
             ),
             BottomNavigationBarItem(
-              icon: Icon(size: 35,
+              icon: Icon(
                 Icons.add,
               ),
               label: 'Adicionar',
             ),
             BottomNavigationBarItem(
-              icon: Icon(size: 35,
+              icon: Icon(
                 Icons.person,
               ),
               label: 'Perfil',
@@ -103,6 +97,7 @@ class HomePageState extends State<HomePage> {
           ],
           onTap: (pagina) {
             setState(() {
+              paginaAtual = pagina; // Atualiza a página selecionada
               showTutorial = false;
             });
             pc.animateToPage(pagina,
@@ -113,3 +108,4 @@ class HomePageState extends State<HomePage> {
     );
   }
 }
+

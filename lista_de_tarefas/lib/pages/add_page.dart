@@ -230,8 +230,558 @@ class _AddPageState extends State<AddPage> {
                         style: TextStyle(color: Colors.white)),
                   ),
                 ),
-
-                // Adicione outros botões aqui se necessário
+                SizedBox(height: 15,),
+                Container(
+                  width: MediaQuery.of(context).size.width *
+                      0.8, // 80% da largura da tela
+                  height: 50, // Altura de 50
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Color(0xFF2D4263)),
+                    ),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Theme(
+                              data: ThemeData(
+                                // Defina o tema para o AlertDialog
+                                dialogBackgroundColor: Color(
+                                    0xFF2D4263), // Cor de fundo do AlertDialog
+                                textTheme: Theme.of(context).textTheme.apply(
+                                      bodyColor: Colors
+                                          .white, // Cor do texto do AlertDialog
+                                    ),
+                              ),
+                              child: AlertDialog(
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: Text(
+                                        "Salvar",
+                                        style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 200, 75, 49),
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                  title: Text("Terça Feira"),
+                                  content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextFormField(
+                                          decoration: InputDecoration(
+                                            labelText: 'Descrição do dia',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            border: OutlineInputBorder(),
+                                          ),
+                                          controller: segunda,
+                                          // Adicione a lógica de validação aqui, se necessário
+                                        ),
+                                        SizedBox(height: 10),
+                                        Row(
+                                          children: [
+                                            Text("Escolha o horário: "),
+                                            TextButton(
+                                              onPressed: () async {
+                                                final TimeOfDay? picked =
+                                                    await showTimePicker(
+                                                  context: context,
+                                                  initialTime: _selectedTime,
+                                                );
+                                                if (picked != null &&
+                                                    picked != _selectedTime) {
+                                                  setState(() {
+                                                    _selectedTime = picked;
+                                                  });
+                                                }
+                                              },
+                                              child: Text(
+                                                _selectedTime.format(
+                                                    context), // Movido para fora do Builder
+                                                style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 200, 75, 49),
+                                                  fontSize: 16.0,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ])));
+                        },
+                      );
+                    },
+                    child: Text("Terça Feira",
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+                SizedBox(height: 15,),
+                Container(
+                  width: MediaQuery.of(context).size.width *
+                      0.8, // 80% da largura da tela
+                  height: 50, // Altura de 50
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Color(0xFF2D4263)),
+                    ),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Theme(
+                              data: ThemeData(
+                                // Defina o tema para o AlertDialog
+                                dialogBackgroundColor: Color(
+                                    0xFF2D4263), // Cor de fundo do AlertDialog
+                                textTheme: Theme.of(context).textTheme.apply(
+                                      bodyColor: Colors
+                                          .white, // Cor do texto do AlertDialog
+                                    ),
+                              ),
+                              child: AlertDialog(
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: Text(
+                                        "Salvar",
+                                        style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 200, 75, 49),
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                  title: Text("Quarta Feira"),
+                                  content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextFormField(
+                                          decoration: InputDecoration(
+                                            labelText: 'Descrição do dia',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            border: OutlineInputBorder(),
+                                          ),
+                                          controller: segunda,
+                                          // Adicione a lógica de validação aqui, se necessário
+                                        ),
+                                        SizedBox(height: 10),
+                                        Row(
+                                          children: [
+                                            Text("Escolha o horário: "),
+                                            TextButton(
+                                              onPressed: () async {
+                                                final TimeOfDay? picked =
+                                                    await showTimePicker(
+                                                  context: context,
+                                                  initialTime: _selectedTime,
+                                                );
+                                                if (picked != null &&
+                                                    picked != _selectedTime) {
+                                                  setState(() {
+                                                    _selectedTime = picked;
+                                                  });
+                                                }
+                                              },
+                                              child: Text(
+                                                _selectedTime.format(
+                                                    context), // Movido para fora do Builder
+                                                style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 200, 75, 49),
+                                                  fontSize: 16.0,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ])));
+                        },
+                      );
+                    },
+                    child: Text("Quarta Feira",
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+                SizedBox(height: 15,),
+                Container(
+                  width: MediaQuery.of(context).size.width *
+                      0.8, // 80% da largura da tela
+                  height: 50, // Altura de 50
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Color(0xFF2D4263)),
+                    ),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Theme(
+                              data: ThemeData(
+                                // Defina o tema para o AlertDialog
+                                dialogBackgroundColor: Color(
+                                    0xFF2D4263), // Cor de fundo do AlertDialog
+                                textTheme: Theme.of(context).textTheme.apply(
+                                      bodyColor: Colors
+                                          .white, // Cor do texto do AlertDialog
+                                    ),
+                              ),
+                              child: AlertDialog(
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: Text(
+                                        "Salvar",
+                                        style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 200, 75, 49),
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                  title: Text("Quinta Feira"),
+                                  content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextFormField(
+                                          decoration: InputDecoration(
+                                            labelText: 'Descrição do dia',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            border: OutlineInputBorder(),
+                                          ),
+                                          controller: segunda,
+                                          // Adicione a lógica de validação aqui, se necessário
+                                        ),
+                                        SizedBox(height: 10),
+                                        Row(
+                                          children: [
+                                            Text("Escolha o horário: "),
+                                            TextButton(
+                                              onPressed: () async {
+                                                final TimeOfDay? picked =
+                                                    await showTimePicker(
+                                                  context: context,
+                                                  initialTime: _selectedTime,
+                                                );
+                                                if (picked != null &&
+                                                    picked != _selectedTime) {
+                                                  setState(() {
+                                                    _selectedTime = picked;
+                                                  });
+                                                }
+                                              },
+                                              child: Text(
+                                                _selectedTime.format(
+                                                    context), // Movido para fora do Builder
+                                                style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 200, 75, 49),
+                                                  fontSize: 16.0,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ])));
+                        },
+                      );
+                    },
+                    child: Text("Quinta Feira",
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+                SizedBox(height: 15,),
+                Container(
+                  width: MediaQuery.of(context).size.width *
+                      0.8, // 80% da largura da tela
+                  height: 50, // Altura de 50
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Color(0xFF2D4263)),
+                    ),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Theme(
+                              data: ThemeData(
+                                // Defina o tema para o AlertDialog
+                                dialogBackgroundColor: Color(
+                                    0xFF2D4263), // Cor de fundo do AlertDialog
+                                textTheme: Theme.of(context).textTheme.apply(
+                                      bodyColor: Colors
+                                          .white, // Cor do texto do AlertDialog
+                                    ),
+                              ),
+                              child: AlertDialog(
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: Text(
+                                        "Salvar",
+                                        style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 200, 75, 49),
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                  title: Text("Sexta Feira"),
+                                  content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextFormField(
+                                          decoration: InputDecoration(
+                                            labelText: 'Descrição do dia',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            border: OutlineInputBorder(),
+                                          ),
+                                          controller: segunda,
+                                          // Adicione a lógica de validação aqui, se necessário
+                                        ),
+                                        SizedBox(height: 10),
+                                        Row(
+                                          children: [
+                                            Text("Escolha o horário: "),
+                                            TextButton(
+                                              onPressed: () async {
+                                                final TimeOfDay? picked =
+                                                    await showTimePicker(
+                                                  context: context,
+                                                  initialTime: _selectedTime,
+                                                );
+                                                if (picked != null &&
+                                                    picked != _selectedTime) {
+                                                  setState(() {
+                                                    _selectedTime = picked;
+                                                  });
+                                                }
+                                              },
+                                              child: Text(
+                                                _selectedTime.format(
+                                                    context), // Movido para fora do Builder
+                                                style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 200, 75, 49),
+                                                  fontSize: 16.0,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ])));
+                        },
+                      );
+                    },
+                    child: Text("Sexta Feira",
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+                SizedBox(height: 15,),
+                Container(
+                  width: MediaQuery.of(context).size.width *
+                      0.8, // 80% da largura da tela
+                  height: 50, // Altura de 50
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Color(0xFF2D4263)),
+                    ),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Theme(
+                              data: ThemeData(
+                                // Defina o tema para o AlertDialog
+                                dialogBackgroundColor: Color(
+                                    0xFF2D4263), // Cor de fundo do AlertDialog
+                                textTheme: Theme.of(context).textTheme.apply(
+                                      bodyColor: Colors
+                                          .white, // Cor do texto do AlertDialog
+                                    ),
+                              ),
+                              child: AlertDialog(
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: Text(
+                                        "Salvar",
+                                        style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 200, 75, 49),
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                  title: Text("Sábado"),
+                                  content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextFormField(
+                                          decoration: InputDecoration(
+                                            labelText: 'Descrição do dia',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            border: OutlineInputBorder(),
+                                          ),
+                                          controller: segunda,
+                                          // Adicione a lógica de validação aqui, se necessário
+                                        ),
+                                        SizedBox(height: 10),
+                                        Row(
+                                          children: [
+                                            Text("Escolha o horário: "),
+                                            TextButton(
+                                              onPressed: () async {
+                                                final TimeOfDay? picked =
+                                                    await showTimePicker(
+                                                  context: context,
+                                                  initialTime: _selectedTime,
+                                                );
+                                                if (picked != null &&
+                                                    picked != _selectedTime) {
+                                                  setState(() {
+                                                    _selectedTime = picked;
+                                                  });
+                                                }
+                                              },
+                                              child: Text(
+                                                _selectedTime.format(
+                                                    context), // Movido para fora do Builder
+                                                style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 200, 75, 49),
+                                                  fontSize: 16.0,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ])));
+                        },
+                      );
+                    },
+                    child: Text("Sábado",
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+                SizedBox(height: 15,),
+                Container(
+                  width: MediaQuery.of(context).size.width *
+                      0.8, // 80% da largura da tela
+                  height: 50, // Altura de 50
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Color(0xFF2D4263)),
+                    ),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Theme(
+                              data: ThemeData(
+                                // Defina o tema para o AlertDialog
+                                dialogBackgroundColor: Color(
+                                    0xFF2D4263), // Cor de fundo do AlertDialog
+                                textTheme: Theme.of(context).textTheme.apply(
+                                      bodyColor: Colors
+                                          .white, // Cor do texto do AlertDialog
+                                    ),
+                              ),
+                              child: AlertDialog(
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: Text(
+                                        "Salvar",
+                                        style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 200, 75, 49),
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                  title: Text("Domingo"),
+                                  content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextFormField(
+                                          decoration: InputDecoration(
+                                            labelText: 'Descrição do dia',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            border: OutlineInputBorder(),
+                                          ),
+                                          controller: segunda,
+                                          // Adicione a lógica de validação aqui, se necessário
+                                        ),
+                                        SizedBox(height: 10),
+                                        Row(
+                                          children: [
+                                            Text("Escolha o horário: "),
+                                            TextButton(
+                                              onPressed: () async {
+                                                final TimeOfDay? picked =
+                                                    await showTimePicker(
+                                                  context: context,
+                                                  initialTime: _selectedTime,
+                                                );
+                                                if (picked != null &&
+                                                    picked != _selectedTime) {
+                                                  setState(() {
+                                                    _selectedTime = picked;
+                                                  });
+                                                }
+                                              },
+                                              child: Text(
+                                                _selectedTime.format(
+                                                    context), // Movido para fora do Builder
+                                                style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 200, 75, 49),
+                                                  fontSize: 16.0,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ])));
+                        },
+                      );
+                    },
+                    child: Text("Domingo",
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                ),
               ],
             ),
           ),
